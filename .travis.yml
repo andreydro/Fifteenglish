@@ -1,0 +1,14 @@
+language: ruby
+cache:
+- bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key:
+    secure: "fPrfJJKAkdpWUmUIR2zno7i6FaiDPC4CsQvOpJ9HVk0DTR9a8vqN2tugV3dkleuNR2Q3uQ8LiDuG59/z1NEbx2+NmnDlAQBHXQSVGx0D1NGIUgK+pef+5e1V4o7JCGD9Bv5orLC7eQ181p9ThlJVDiVbCToRgec/lBgZTQRv3JVV/6gSP3/yxeIlOekidtUfoB8mnx1FUFiY376SsffiQA/hKFA3oGZ3Bdf6ymgBa5/SpNWGhuG1v93IIDZ7abQoeRMep3+XYKxf23nfv1DaPiI6yZ5FnkI2s5q/BRCweW80XwFi2t3sbfsiyCcljyQVIWwV8f5iI1TpEdDsWJExzT46Weqsf4lcjwMDE5avqowxvAmXm2ThhzhyJ7zmCKSMaNWB5aHYGUdqaU9+LhhXcMwFCy95TU6+gcYDJiVLHSmJiUQiAfBOhl4r9kf5spMzerPOo+4J5SjxESeS7t9iFRj1r8rNLR4vUNt90FmfmQsFiuFtmsjsrr+DX/00qSCjrTV4ksXU0XVILLKLMTbT8U4gPJILfSizyPs2/TQSllFSsZg+0GVbjdcnLh2bK7jU4Hz9+gG5Op944PBVLiuIxOfOoDVeIxNGDFnIke6FJUliIavj6mAvLUTubLn+16ldnYradhOYgUfnrAANpsG9r9VBv+Ee8omKHwJJ0C4B71g="
+  app: fifteenglish
+  on:
+    repo: andreydro/fifteenglish
